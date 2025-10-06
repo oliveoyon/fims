@@ -106,6 +106,40 @@
                     </ul>
                 </li>
 
+                <li class="has-submenu">
+                    <a href="#"><i class="fas fa-school"></i> School Management</a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="{{ route('admin.schools.index') }}">
+                                <i class="fas fa-school"></i> Schools
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="has-submenu">
+                    <a href="#"><i class="fas fa-user-tie"></i> Tenderer Management</a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="{{ route('admin.tenderers.index') }}">
+                                <i class="fas fa-user-tie"></i> Tenderers
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="has-submenu">
+                    <a href="#"><i class="fas fa-file-contract"></i> Tender Management</a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="{{ route('admin.tenders.index') }}">
+                                <i class="fas fa-file-contract"></i> Tenders
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
 
                 <!-- Logout -->
                 @auth

@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\PermissionGroupController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\SchoolController;
+use App\Http\Controllers\Admin\TenderController;
 use App\Http\Controllers\Admin\TendererController;
 use App\Http\Controllers\Admin\TestController;
 use App\Http\Controllers\Admin\UpazilaController;
@@ -57,6 +58,15 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
     Route::get('get-zones/{division}', [SchoolController::class, 'getZones']);
     Route::get('get-districts/{zone}', [SchoolController::class, 'getDistricts']);
     Route::get('get-upazilas/{district}', [SchoolController::class, 'getUpazilas']);
+
+
+    Route::resource('tenders', TenderController::class);
+
+    // Extra routes for dependent dropdowns (if needed)
+    Route::get('schools-by-division/{division}', [TenderController::class, 'schoolsByDivision']);
+    Route::get('schools-by-zone/{zone}', [TenderController::class, 'schoolsByZone']);
+    Route::get('schools-by-district/{district}', [TenderController::class, 'schoolsByDistrict']);
+    Route::get('schools-by-upazila/{upazila}', [TenderController::class, 'schoolsByUpazila']);
 
 
 });
