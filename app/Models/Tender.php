@@ -10,7 +10,13 @@ class Tender extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'component_id', 'tenderer_id', 'description', 'start_date', 'end_date', 'is_active'
+        'title',
+        'component_id',
+        'tenderer_id',
+        'description',
+        'start_date',
+        'end_date',
+        'is_active'
     ];
 
     public function component()
@@ -25,6 +31,6 @@ class Tender extends Model
 
     public function schools()
     {
-        return $this->belongsToMany(School::class, 'school_tender');
+        return $this->belongsToMany(School::class, 'school_tender', 'tender_id', 'school_id');
     }
 }

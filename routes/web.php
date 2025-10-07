@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ComponentController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DistrictController;
 use App\Http\Controllers\Admin\DivisionController;
+use App\Http\Controllers\Admin\InspectionController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\PermissionGroupController;
 use App\Http\Controllers\Admin\RoleController;
@@ -67,6 +68,14 @@ Route::prefix('admin')->name('admin.')->middleware(['auth'])->group(function () 
     Route::get('schools-by-zone/{zone}', [TenderController::class, 'schoolsByZone']);
     Route::get('schools-by-district/{district}', [TenderController::class, 'schoolsByDistrict']);
     Route::get('schools-by-upazila/{upazila}', [TenderController::class, 'schoolsByUpazila']);
+
+
+    Route::resource('inspections', InspectionController::class);
+
+// Dependency dropdowns
+Route::get('get-schools-by-tender/{tender}', [InspectionController::class, 'getSchoolsByTender']);
+Route::get('inspections/{inspection}/history', [InspectionController::class, 'history'])->name('inspections.history');
+
 
 
 });
