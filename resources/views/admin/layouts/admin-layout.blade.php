@@ -139,6 +139,17 @@
                     </ul>
                 </li>
 
+                <li class="has-submenu">
+                    <a href="#"><i class="fas fa-file-contract"></i> Inspections</a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="{{ route('admin.inspections.index') }}">
+                                <i class="fas fa-file-contract"></i> Inspect
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
 
 
                 <!-- Logout -->
